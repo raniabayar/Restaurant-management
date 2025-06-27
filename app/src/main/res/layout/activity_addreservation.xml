@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reservation_modal_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000"
+    android:padding="20dp"
+    tools:context=".ReservationActivity">
+
+    <!-- Modal Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/reservation_modal_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:background="#F8EEEC">
+
+            <!-- Header with back button and title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <ImageButton
+                    android:id="@+id/reservation_modal_back_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_arrow_back"
+                    android:layout_marginEnd="16dp"/>
+
+                <TextView
+                    android:id="@+id/reservation_modal_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Ajouter Réservation"
+                    android:textColor="#EA6D35"
+                    android:textSize="24sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <!-- Client Name -->
+            <TextView
+                android:id="@+id/reservation_modal_name_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nom de client"
+                android:textColor="#3B608C"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/reservation_modal_name_input"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/addedittext_background"
+                android:hint="Entrez le nom complet"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textSize="16sp" />
+
+            <!-- Date and Time in same row with labels above -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <!-- Labels row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Date Label -->
+                    <TextView
+                        android:id="@+id/reservation_modal_date_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Date (DD/MM/YY)"
+                        android:textColor="#3B608C"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="4dp" />
+
+                    <!-- Time Label -->
+                    <TextView
+                        android:id="@+id/reservation_modal_time_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Heure"
+                        android:textColor="#3B608C"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="4dp"/>
+                </LinearLayout>
+
+                <!-- Fields row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <!-- Date Field -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="2dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#ffffff">
+
+                            <EditText
+                                android:id="@+id/reservation_modal_date_input"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_toStartOf="@+id/date_icon"
+                                android:hint="JJ/MM/AA"
+                                android:textSize="16sp"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:gravity="center"
+                                android:paddingStart="16dp"
+                                android:paddingEnd="8dp"
+                                android:background="#ffffff"/>
+
+                            <ImageView
+                                android:id="@+id/date_icon"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_calendar"
+                                android:background="#ffffff" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Time Field -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="2dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#ffffff">
+
+                            <EditText
+                                android:id="@+id/reservation_modal_time_input"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_toStartOf="@+id/time_icon"
+                                android:hint="HH:MM"
+                                android:textSize="16sp"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:paddingStart="16dp"
+                                android:paddingEnd="8dp"
+                                android:gravity="center"/>
+
+                            <ImageView
+                                android:id="@+id/time_icon"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_clock"/>
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Phone and People in same row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="24dp">
+
+                <!-- Labels row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Phone Label -->
+                    <TextView
+                        android:id="@+id/reservation_modal_phone_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Téléphone"
+                        android:textColor="#3B608C"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_gravity="center"/>
+
+                    <!-- People Label -->
+                    <TextView
+                        android:id="@+id/reservation_modal_people_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Nombre de personnes"
+                        android:textColor="#3B608C"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="4dp"/>
+                </LinearLayout>
+
+                <!-- Fields row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Phone Field -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="2dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#ffffff">
+
+                            <EditText
+                                android:id="@+id/reservation_modal_phone_input"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:hint="Numéro"
+                                android:textSize="16sp"
+                                android:inputType="phone"
+                                android:paddingStart="16dp"
+                                android:paddingEnd="8dp"
+                                android:gravity="center"/>
+
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- People Field -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="2dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#ffffff">
+
+                            <EditText
+                                android:id="@+id/reservation_modal_people_input"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_toStartOf="@+id/people_icon"
+                                android:hint="1"
+                                android:textSize="16sp"
+                                android:inputType="number"
+                                android:paddingStart="16dp"
+                                android:paddingEnd="8dp"
+                                android:gravity="center"/>
+
+                            <ImageView
+                                android:id="@+id/people_icon"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_person" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Submit Button -->
+            <Button
+                android:id="@+id/reservation_modal_submit_button"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Confirmer la réservation"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:background="@drawable/button_background"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
